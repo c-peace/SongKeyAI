@@ -1,4 +1,4 @@
-# youtube-dl를 이용해서 url에서 음원을 추출하는 기능을 구현하는 파일
+# youtube-dl를 이용해서 url에서 음원을 추출하고 정보들을 수집하는 파일
 
 import yt_dlp as youtube_dl
 import essentia.standard as es
