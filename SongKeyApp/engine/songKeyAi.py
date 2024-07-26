@@ -14,11 +14,6 @@ ydl_opts = {
     'outtmpl': 'downloaded_audio.%(ext)s',
 }
 
-url = 'https://youtu.be/sgS9ftxn2QQ?si=_V6D2Y3dGfmKJowO'
-
-with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-    ydl.download([url])
-
 def detect_key(file_path):
     # Load the audio file
     loader = es.MonoLoader(filename = file_path)
@@ -36,17 +31,24 @@ def detect_tempo(file_path):
     audio = loader()
 
     # Compute the tempo of the audio
-    rhythm_extractor = es.RhythmExtractor()
+    rhythm_extractor = es.RhythmExtractor2013()
     tempo = rhythm_extractor(audio)
 
     return tempo[0]
 
-file_path = 'downloaded_audio.mp3'
+# AnalyzeSong Function
+def analyzeSong(url):
+    url = url
+    global ydl_opts
 
-key, scale, key_strength = detect_key(file_path)
-tempo = detect_tempo(file_path)
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
 
-print(f'곡의 키는 : {key} {scale} 이며, 정확도는 {int(key_strength * 100)}% 입니다.')
-print(f'곡의 빠르기는 : {int(tempo)} 입니다.')
+    file_path = 'downloaded_audio.mp3'
 
-os.remove(file_path)
+    key, scale, key_strength = detect_key(file_path)
+    tempo = detect_tempo(file_path)
+
+    os.remove(file_path)
+    
+    return key, scale, int(key_strength * 100), int(tempo)

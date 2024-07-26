@@ -1,0 +1,14 @@
+<html>
+
+<body>
+    <h1>Song Key AI</h1>
+
+    <form action="{%url 'url' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="url">
+        <input type="submit" value="Analyze">
+    </form>
+    <h3>{{result}}</h3>
+</body>
+
+</html>
