@@ -1,4 +1,10 @@
 <html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SongKeyAI</title>
+</head>
 
 <body>
     <h1>Song Key AI</h1>
@@ -8,7 +14,24 @@
         <input type="text" name="url">
         <input type="submit" value="Analyze">
     </form>
-    <h3>{{result}}</h3>
+    <h3 style="margin-bottom: 8px;">{{title}}</h3>
+    <h3 style="margin: 0px">{{result}}</h3>
+
+    <br>
+    <p style="font-family:Arial, Helvetica, sans-serif">Song Key AI란?<br>
+    음원의 키(조표)와 템포(빠르기)를 분석해서 알려주는 서비스입니다.<br><br>
+
+    📚 사용법<br>
+    - 전조가 없는 한 곡(음원)의 유튜브 url을 복사해서 붙여 넣습니다.<br>
+    - 음원의 youtube url을 입력하시고 Analyze 버튼을 클릭하세요.<br><br>
+    
+    🚨 주의(문제점)<br>
+    - 키(조표)가 다른 두 곡이 연결되어있으면 전혀다른 값이 나옵니다.<br>
+    - 템포(빠르기)가 다른 두 곡이 연결되어있으면 전혀다른 값이 나옵니다.<br>
+    - 한 곡에서 전조가 되면 전혀다른 값이 나옵니다.<br>
+    * 이 문제들은 개선 중에 있습니다.
+
+</p>
 </body>
 
 </html>

@@ -48,7 +48,9 @@ def analyzeSong(url):
 
     key, scale, key_strength = detect_key(file_path)
     tempo = detect_tempo(file_path)
+    info_dict = ydl.extract_info(url, download=False)
+    video_title = info_dict.get('title', None)
 
     os.remove(file_path)
     
-    return key, scale, int(key_strength * 100), int(tempo)
+    return key, scale, int(key_strength * 100), int(tempo), video_title
